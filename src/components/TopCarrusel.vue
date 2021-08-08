@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div class="container" >
+  <div>
+    <div class="container mt-2" >
       <!-- carousel -->
       <div
         id="carouselExampleCaptions"
@@ -27,7 +27,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="../../public/imagenes/LibroAlbedrio.png"
+              src="../../public/imagenes/LibroAlbedrio2.png"
               class="img-fluid"
               alt="Bienvenido a Libro Albedrio"
             />

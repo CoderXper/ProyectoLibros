@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <b-navbar toggleable="lg" type="dark" variant="info">
             <b-navbar-brand router-link to="#">LiBrO AlBeDrÍo</b-navbar-brand>
 
