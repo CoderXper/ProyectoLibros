@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <b-form inline>
-            <label class="sr-only" for="inline-form-input-name">Name</label>
-            <b-form-input
-            id="inline-form-input-name"
-            class="mb-2 mr-sm-2 mb-sm-0"
-            placeholder="Jane Doe"
-            ></b-form-input>
+    <b-container>
+        <b-form-row >
+            <b-col cols="5">
+                <img src="../../public/imagenes/Bienvenido.png" alt="Bienvenido a seccion Administrador">
+            </b-col>
 
-            <label class="sr-only" for="inline-form-input-username">Username</label>
-            <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
-            <b-form-input id="inline-form-input-username" placeholder="Username"></b-form-input>
-            </b-input-group>
-
-            <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
-
-            <b-button variant="primary" router-link to= '/autorizado'>Entrar</b-button>
-        </b-form>
-    </div>
+            <b-col cols="7" align-self="center">
+                <b-container fluid>
+                            <label for="exampleInputEmail1">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Tus datos están seguros.</small>
+                            
+                            <label for="exampleInputPassword1">Contraseña</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <b-button type="submit" class="btn btn-primary mt-2" router-link to= '/autorizado'>Ingresar</b-button>
+                </b-container>
+            </b-col>
+        </b-form-row>
+    </b-container>
 </template>
 
 
