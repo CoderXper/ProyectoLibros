@@ -1,7 +1,7 @@
 <template>
     <b-container>
         <b-form-row >
-            <b-col cols="5">
+            <b-col cols="5" class="mt-2">
                 <img src="../../public/imagenes/Bienvenido.png" alt="Bienvenido a seccion Administrador">
             </b-col>
 
