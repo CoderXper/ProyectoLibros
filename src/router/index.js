@@ -29,12 +29,18 @@ const routes = [
     path: '/autorizado',
     name: 'Autorizado',
     component: () => import(/* webpackChunkName: "libros" */ '../views/Autorizado.vue'),
-    Children:[
+    children:[
       {
         path: 'libros',
         name: 'Libros',
         component: () => import(/* webpackChunkName: "libros" */ '../views/Libros.vue')
+      },
+      {
+        path: 'intercambios',
+        name: 'Intercambios',
+        component: () => import(/* webpackChunkName: "intercambios " */ '../views/Intercambios.vue')
       }
+
     ]
   }
 ]

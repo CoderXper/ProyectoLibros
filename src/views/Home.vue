@@ -6,6 +6,7 @@
     <top-carrusel></top-carrusel>
     <the-services></the-services>
     <the-footer></the-footer>
+    <!-- <router-view/> -->
   </div>
 </template>
 

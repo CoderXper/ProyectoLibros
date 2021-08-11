@@ -1,11 +1,18 @@
 <template>
-    <div class="libro">
-    <p>Esta es la pagina Libros</p>
-    </div>
+        <b-container>
+            <my-books></my-books>
+        </b-container>
+
 </template>
 
 <script>
+import MyBooks from '@/components/crud/MyBooks.vue'
+
 export default {
-    name:'Libros'
+    name:'Libros',
+    components:{
+        MyBooks,
+    }
+    
 }
 </script>
