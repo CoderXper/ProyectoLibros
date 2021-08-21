@@ -1,3 +1,6 @@
 export default{
-    libros: []
+    libros: [],
+    selectedBook: null,
+    error: false,
+    errorMessage: ''
 }

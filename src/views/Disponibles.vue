@@ -5,30 +5,25 @@
                 <b-nav-item :to="{name:'Libros-create'}">Crear Libro</b-nav-item>
                 <!-- <b-nav-item :to="{name:'Libros-update'}">Actualizar Libro</b-nav-item> -->
             </b-nav>
-            <b-row>
+
+            <b-row class="mb-5">
                 <b-col cols="12">
-                    <h2> Mis Libros para Intercambiar</h2>
+                    <h2> Libros para Intercambio</h2>
                     <b-row>
-                        <b-col cols="3">Isbn|</b-col>
-                        <b-col cols="3">Titulo|</b-col>
-                        <b-col cols="3">Autor|</b-col>
+                        <b-col cols="3">Isbn |</b-col>
+                        <b-col cols="3">Titulo |</b-col>
+                        <b-col cols="3">Autor |</b-col>
                         <!-- <b><b-col cols="2">Date</b-col></b> -->
                     </b-row>
                     <books-list :libros="disponibles " class="small">
                     </books-list>
                 </b-col>
 
-                <b-col cols="12" class="mb-5">
-                    <h2> Lo que estoy leyendo</h2>
-                        <b-row >
-                            <b-col cols="3">Isbn|</b-col>
-                            <b-col cols="3">Titulo|</b-col>
-                            <b-col cols="3">Autor|</b-col>
-                            <!-- <b><b-col cols="2">Date</b-col></b> -->
-                        </b-row>
+                <!-- <b-col cols="6">
+                    <h2> Libros Reservados</h2>
                     <books-list :libros="reservados" class="small">
                     </books-list>
-                    </b-col>
+                    </b-col> -->
             </b-row>
 
         </b-container>
@@ -47,8 +42,8 @@ export default {
         ...mapGetters('libros', ['reservados', 'disponibles'])
     },
     mounted(){
-        this.fetchLibros('mago2004')
-        // this.fetchLibros('')
+        // this.fetchLibros('mago2004')
+        this.fetchLibros('')
     },
     methods:{
         ...mapActions('libros', ['fetchLibros'])

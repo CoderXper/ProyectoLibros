@@ -10,7 +10,8 @@
                 <b-nav-item router-link to="/">INICIO |</b-nav-item>
                 <b-nav-item router-link to="/galeria">GALERIA |</b-nav-item>
                 <b-nav-item router-link to="/about">ABOUT US |</b-nav-item>
-                <b-nav-item router-link to="/admin">ADMINISTRADOR |</b-nav-item>
+                <!-- Mi Cuenta se denominó inicialmente ADMINISTRADOR -->
+                <b-nav-item router-link to="/admin">Mi Cuenta |</b-nav-item>
             </b-navbar-nav>
 
             <!-- Right aligned nav items -->

@@ -36,9 +36,19 @@ const routes = [
         component: () => import(/* webpackChunkName: "libros" */ '../views/Libros.vue')
       },
       {
-        path: 'intercambios',
-        name: 'Intercambios',
-        component: () => import(/* webpackChunkName: "intercambios " */ '../views/Intercambios.vue')
+        path: 'libros/create',
+        name: 'Libros-create',
+        component: () => import(/* webpackChunkName: "libros-create" */ '../views/LibrosCreate.vue')
+      },
+      {
+        path: 'libros/:isbn/update',
+        name: 'Libros-update',
+        component: () => import(/* webpackChunkName: "Libros-update" */ '../views/LibrosUpdate.vue')
+      },
+      {
+        path: 'disponibles',
+        name: 'Disponibles',
+        component: () => import(/* webpackChunkName: "Disponibles " */ '../views/Disponibles.vue')
       }
 
     ]

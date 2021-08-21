@@ -1,12 +1,14 @@
 <template>
     <div>
         
-        <b-row cols="12">
-            <b-col cols="3">{{libro.isbn}}  </b-col>
-            <b-col cols="3">{{libro.titulo}}</b-col>
-            <b-col cols="3">{{libro.autor}}</b-col>
+        <b-row>
+            <b-col cols="2">{{libro.isbn}}  </b-col>
+            <b-col cols="2">{{libro.titulo}}</b-col>
+            <b-col cols="2">{{libro.autor}}</b-col>
+            <b-col cols="2">{{libro.totalpaginas}}</b-col>
+            <b-col cols="2">{{libro.idusuario}}</b-col>
             <!-- <b-col cols="2">{{libro.create_date}}</b-col> -->
-            <b-col cols="3">
+            <b-col>
                 <b-button
                     size="sm"
                     @click="goToUpdateLibro"
