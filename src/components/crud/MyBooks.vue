@@ -49,6 +49,8 @@ export default {
             _removeLibro: 'libros/deleteLibro',
             _crearLibro: 'libros/addLibros'
         }),
+        // libros es el namaspaced del modulo de vuex
+        // ['setlibro] lista de nombre de mutaciones que queremos seleccionar
         ...mapMutations('libros', ['setLibro']),
         goToUpdateLibro(){
             this.setLibro(this.libro)
@@ -58,7 +60,7 @@ export default {
             // replace no guarda registro en la historia, al dar atras no lleva a ningun lado (no existe la ruta)
             this.$router.push({
                 name:'Libros-update',
-                params:{id:this.libro.id}
+                params:{id:this.libro._id}
             })
         },
         newLibro(){

@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <h1>Ingresar Nuevo Libro</h1>
-        <books-form :libro="libro" @submit-form="addLibro"></books-form>
+        <books-form :libro="libro" @submitForm="addLibro"></books-form>
     </div>
 </template>
 
@@ -19,12 +19,16 @@ export default {
         return {
             libro: {
                 isbn: '',
-                titulo: '',
                 idusuario: '',
-                edades: '',
+                autor: '',
+                titulo: '',
                 totalpaginas: '',
+                edades: '',
+                disponible: true,
                 url: '',
-                autor: ''
+                // forGroup:{
+                    // nested: {required}
+                // }
             }
         }
     },
@@ -33,8 +37,22 @@ export default {
             createLibro: 'libros/addLibros'
         }),
         addLibro(libro){
-            this.createLibro(libro).then(() => {
-                this.$router.push('/autorizado/libros')
+            this.createLibro(libro).then(() =>{
+                this.$bvToast.toast(`El libro ${this.libro.titulo} fue guardado en la base de datos`, {
+                    title: 'Operación Realizada Exitosamente',
+                    autoHideDelay: 5000,
+                })   
+                this.libro = {
+                    isbn: '',
+                    idusuario: '',
+                    autor: '',
+                    titulo: '',
+                    totalpaginas: '',
+                    edades: '',
+                    disponible: true,
+                    url: '',
+            }
+
             })
         }
     }

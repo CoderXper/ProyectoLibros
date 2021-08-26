@@ -41,7 +41,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "libros-create" */ '../views/LibrosCreate.vue')
       },
       {
-        path: 'libros/:isbn/update',
+        path: 'libros/:id/update',
         name: 'Libros-update',
         component: () => import(/* webpackChunkName: "Libros-update" */ '../views/LibrosUpdate.vue')
       },
