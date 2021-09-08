@@ -3,7 +3,7 @@
         <my-books
             v-for="libro in libros"
             :key="libro.id"
-            v-bind:libro="libro"
+            :libro="libro"
         ></my-books>
     </div>
     <b-alert v-else show variant="light">
@@ -19,6 +19,7 @@ export default {
     components:{ 
         MyBooks
     },
+    // Se recibe por props porque no se sabe donde va a renderizar el libro, disponible o no
     props:{ 
         libros: {
             type: Array,

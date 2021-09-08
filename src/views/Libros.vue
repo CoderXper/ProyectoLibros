@@ -9,12 +9,13 @@
                 <b-col cols="12">
                     <h2> Mis Libros para Intercambiar</h2>
                     <b-row>
-                        <b-col cols="3">Isbn|</b-col>
+                        <b-col cols="2">Isbn|</b-col>
                         <b-col cols="3">Titulo|</b-col>
                         <b-col cols="3">Autor|</b-col>
+                        <b-col cols="1">Disponible|</b-col>
                         <!-- <b><b-col cols="2">Date</b-col></b> -->
                     </b-row>
-                    <books-list :libros="disponibles " class="small">
+                    <books-list :libros="disponibles" class="small">
                     </books-list>
                 </b-col>
 
@@ -24,6 +25,7 @@
                             <b-col cols="3">Isbn|</b-col>
                             <b-col cols="3">Titulo|</b-col>
                             <b-col cols="3">Autor|</b-col>
+                            <b-col cols="1">Disponible|</b-col>
                             <!-- <b><b-col cols="2">Date</b-col></b> -->
                         </b-row>
                     <books-list :libros="reservados" class="small">
@@ -45,8 +47,10 @@ export default {
     },
     computed:{
         ...mapGetters('libros', ['reservados', 'disponibles'])
+        
     },
     mounted(){
+        // console.log(this.$route);
         this.fetchLibros('mago2004')
         // this.fetchLibros('')
     },

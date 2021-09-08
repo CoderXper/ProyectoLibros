@@ -27,7 +27,7 @@ export async function addLibros({ commit, dispatch }, libro){
 
 export async function updateLibro({commit},libro){
     await Vue.axios.put(`/api/libros/${libro.id}`,{
-        isbn:libro.id,
+        isbn:libro.isbn,
         idusuario: libro.idusuario,
         autor: libro.autor,
         titulo: libro.titulo,
@@ -42,9 +42,9 @@ export async function updateLibro({commit},libro){
     })
 }
 
-export async function updateEstadoLibro({commit},libro){
-    await Vue.axios.put(`/api/libros/${libro.id}`,{
-        isbn:libro.id,
+export async function updateEstadoLibro({commit, dispatch, rootState},libro){
+    await Vue.axios.put(`/api/libros/${libro._id}`,{
+        isbn:libro.isbn,
         idusuario: libro.idusuario,
         autor: libro.autor,
         titulo: libro.titulo,
@@ -52,22 +52,26 @@ export async function updateEstadoLibro({commit},libro){
         edades: libro.edades,
         disponible: !libro.disponible,
         url: libro.url,
-    }).catch((error)=>{
+    }).then(()=>{
+        dispatch('fetchLibros', rootState.datauser.username)
+    }).catch(error=>{
         commit('librosError', error.message)
     }).finally(() =>{
+        
         console.log("Peticion de updateEstadoLibro resuelta")
     })
 }
 
 
-export async function deleteLibro({commit, dispatch}, libro){
-    await Vue.axios.delete(`/api/libros/${libro.id}`)
+export async function deleteLibro({commit, dispatch, rootState}, libro){
+    await Vue.axios.delete(`/api/libros/${libro._id}`)
     .catch((error)=>{
         commit('librosError', error.message) 
     }).finally(() =>{
-        dispatch('fetchLibros');
+        dispatch('fetchLibros', rootState.datauser.username);
         console.log("Peticion de deleteLibros resuelta")
     })
+    // console.log(rootState)
 }
 
 
@@ -81,3 +85,4 @@ export async function fetchLibro({ commit }, id=''){
         console.log("Peticion de fetchLibro resuelta")
     })
 }
+

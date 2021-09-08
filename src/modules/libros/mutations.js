@@ -8,7 +8,7 @@ export function setLibro(state, libro){
 }
 
 export function updateBookAvailable(state, payload){
-    const libro = state.libros.find(livre => livre.isbn ===payload.isbn);
+    const libro = state.libros.find(livre => livre.id ===payload.id);
     if (libro){
         libro.disponible = !libro.disponible;
     }

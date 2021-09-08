@@ -2,11 +2,12 @@
     <div>
         
         <b-row cols="12">
-            <b-col cols="3">{{libro.isbn}}  </b-col>
+            <b-col cols="2">{{libro.isbn}}  </b-col>
             <b-col cols="3">{{libro.titulo}}</b-col>
             <b-col cols="3">{{libro.autor}}</b-col>
-            <!-- <b-col cols="2">{{libro.create_date}}</b-col> -->
-            <b-col cols="3">
+            <b-col cols="1">{{libro.disponible}}</b-col>
+            
+            <b-col cols="3" v-if="$route.name =='Libros' ">
                 <b-button
                     size="sm"
                     @click="goToUpdateLibro"
@@ -17,7 +18,7 @@
                     size="sm"
                     @click="updateEstadoLibro"
                 >
-                    <i class="fas" :class="libro.disponible?'fa-lock': 'fa-unlock'"></i>
+                    <i class="fas" :class="libro.disponible?'fa-unlock': 'fa-lock'"></i>
                 </b-button>
                 <b-button variant="danger"
                     size="sm"
@@ -25,14 +26,21 @@
                 >
                     <i class="fas fa-trash-alt"></i>
                 </b-button>
-
+            </b-col>
+            <b-col cols="3" v-else-if="$route.name =='Disponibles'">
+                <b-button
+                    size="sm"
+                    @click="solicitarLibro"
+                >
+                    <i class="fas fa-book-reader"></i>
+                </b-button>
             </b-col>
         </b-row>
     </div>
 </template>
 
 <script>
-import {mapActions, mapMutations} from 'vuex'
+import {mapActions, mapMutations, mapState} from 'vuex'
 export default {
     name:'MyBooks',
     // props para recibir variables cuando se instancia un componente
@@ -64,7 +72,7 @@ export default {
             })
         },
         newLibro(){
-            this.addLibro()
+            // this.addLibro()
             this.$router.push({
                 name:'Libros-create',
                 params:{}
@@ -76,6 +84,10 @@ export default {
         },
         deleteLibro(){
             this._removeLibro(this.libro)
+        },
+        solicitarLibro(){
+            console.log(this.libro.idusuario)
+
         }
     }
 }

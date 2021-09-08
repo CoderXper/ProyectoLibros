@@ -15,8 +15,12 @@
                         <b-col cols="3">Autor |</b-col>
                         <!-- <b><b-col cols="2">Date</b-col></b> -->
                     </b-row>
-                    <books-list :libros="disponibles " class="small">
+                    
+                    <books-list
+                        :libros=disponiblesOtroUsuario
+                        class="small">
                     </books-list>
+
                 </b-col>
 
                 <!-- <b-col cols="6">
@@ -32,18 +36,21 @@
 
 <script>
 import BooksList from '@/components/crud/BooksList.vue';
-import {mapActions,mapGetters} from 'vuex'
+import {mapActions,mapGetters,mapState} from 'vuex'
 export default {
-    name:'Libros',
+    name:'Disponibles',
     components:{
         BooksList, 
     },
     computed:{
-        ...mapGetters('libros', ['reservados', 'disponibles'])
+    ...mapState({
+        username: state => state.datauser.username
+    }),
+    
+    ...mapGetters('libros', ['reservados', 'disponibles', 'disponiblesOtroUsuario'])
     },
     mounted(){
-        // this.fetchLibros('mago2004')
-        this.fetchLibros('')
+        this.fetchLibros()
     },
     methods:{
         ...mapActions('libros', ['fetchLibros'])
